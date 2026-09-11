@@ -1,0 +1,56 @@
+endpoints:
+  listActions:
+    method: GET
+    path: /projects/{projectId}/actions
+    success:
+      status: 200
+      body: ActionList
+    errors:
+      - status: 404
+        body: ApiError
+        code: PROJECT_NOT_FOUND
+  createAction:
+    method: POST
+    path: /projects/{projectId}/actions
+    body:
+      title: string
+      owner: string
+      dueDate: string | null
+    success:
+      status: 201
+      body: Action
+    errors:
+      - status: 400
+        body: ApiError
+        code: VALIDATION_FAILED
+      - status: 404
+        body: ApiError
+        code: PROJECT_NOT_FOUND
+
+schemas:
+  Action:
+    id: string uuid
+    title: string 1..200 after trim
+    owner: string
+    dueDate: string ISO 8601 | null
+    status: open | blocked | done
+    createdAt: string ISO 8601
+  ActionList:
+    items: Action[]
+    total: integer
+  ApiError:
+    code: string
+    message: string
+    fields: string[] optional
+
+rules:
+  - title is required and trimmed.
+  - status defaults to open on create.
+  - unknown projectId returns 404, never an empty 200.
+  - errors use ApiError. No stack traces in responses.
+  - empty lists return [] instead of null.
+
+decisions:
+  - "TODO: decide sort order."
+  - "TODO: decide owner validation."
+  - "TODO: decide whether done actions appear in the default list."
