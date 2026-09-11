@@ -8,14 +8,19 @@ This is a workshop repository. Keep changes small, scoped, and reviewable.
 - Main tests: `npm test`
 - Action contract tests: `npm run test:actions`
 - Type check: `npm run lint`
+- Local app: `npm run dev`
+- Production build: `npm run build`
 
 ## Architecture
 
-- `src/api/` owns HTTP routing only.
-- `src/repositories/` would own persistence in a larger app; in this starter the feature repositories sit under their feature folders.
-- `src/projects/` is complete and should be used as the house pattern.
-- `src/actions/` is the workshop feature.
+- `app/` owns Next.js pages and route handlers.
+- `app/api/projects/route.ts` is complete and should be used as the API house pattern.
+- `app/api/projects/[projectId]/actions/route.ts` is the workshop API feature.
+- `lib/projects.ts` is the complete reference data layer.
+- `lib/actions.ts` is the starter data layer for the workshop feature.
+- `components/` owns small UI pieces used by the pages.
 - Do not change `tests/actions/contract.spec.ts` to make the feature pass.
+- This project should deploy on Vercel without custom server code.
 
 ## Safety
 

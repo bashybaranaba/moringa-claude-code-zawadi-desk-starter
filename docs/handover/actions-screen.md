@@ -2,6 +2,9 @@
 
 Build an Actions screen from the shared contract.
 
+This is a Next.js App Router project. Dev B can start from `app/page.tsx`,
+`components/project-card.tsx`, and `components/actions-screen.tsx`.
+
 ## Required States
 
 | State | Requirement |

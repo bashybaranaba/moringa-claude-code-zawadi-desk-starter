@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { listProjects } from "../../src/projects/project.repository.js";
+import { listProjects } from "../../lib/projects";
 
 describe("projects", () => {
   it("returns a stable project list", () => {

@@ -1,7 +1,7 @@
 endpoints:
   listActions:
     method: GET
-    path: /projects/{projectId}/actions
+    path: /api/projects/{projectId}/actions
     success:
       status: 200
       body: ActionList
@@ -11,7 +11,7 @@ endpoints:
         code: PROJECT_NOT_FOUND
   createAction:
     method: POST
-    path: /projects/{projectId}/actions
+    path: /api/projects/{projectId}/actions
     body:
       title: string
       owner: string

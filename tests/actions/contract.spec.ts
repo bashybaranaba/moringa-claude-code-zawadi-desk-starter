@@ -1,26 +1,21 @@
 import { describe, expect, it } from "vitest";
-import { createApp } from "../../src/api/app.js";
+import { NextRequest } from "next/server";
+import {
+  GET,
+  POST,
+} from "../../app/api/projects/[projectId]/actions/route";
 
 const run = process.env.INCLUDE_ACTION_CONTRACTS === "1" ? describe : describe.skip;
+type NextRequestInit = ConstructorParameters<typeof NextRequest>[1];
 
-async function request(path: string, init?: RequestInit) {
-  const app = createApp();
-  const server = app.listen(0);
-  try {
-    const address = server.address();
-    if (!address || typeof address === "string") throw new Error("No test port.");
-    const response = await fetch(`http://127.0.0.1:${address.port}${path}`, {
-      ...init,
-      headers: {
-        "content-type": "application/json",
-        ...(init?.headers ?? {}),
-      },
-    });
-    const body = await response.json();
-    return { response, body };
-  } finally {
-    await new Promise<void>((resolve, reject) => server.close((error) => (error ? reject(error) : resolve())));
-  }
+async function request(path: string, init?: NextRequestInit) {
+  const match = path.match(/^\/projects\/([^/]+)\/actions$/);
+  if (!match?.[1]) throw new Error(`Unexpected test path: ${path}`);
+  const request = new NextRequest(`http://localhost/api${path}`, init);
+  const context = { params: Promise.resolve({ projectId: match[1] }) };
+  const response = init?.method === "POST" ? await POST(request, context) : await GET(request, context);
+  const body = await response.json();
+  return { response, body };
 }
 
 run("actions contract", () => {
