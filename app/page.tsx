@@ -1,4 +1,5 @@
 import { listProjects } from "@/lib/projects";
+import { ActionsScreen } from "@/components/actions-screen";
 import { PageHeader } from "@/components/page-header";
 import { ProjectCard } from "@/components/project-card";
 
@@ -25,20 +26,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="panel" aria-labelledby="actions-heading">
-        <div className="panelHeader">
-          <div>
-            <p className="eyebrow">Workshop Feature</p>
-            <h2 id="actions-heading">Actions</h2>
-          </div>
-          <span>Build in pairs</span>
-        </div>
-        <p className="copy">
-          The Actions API route and screen are deliberately unfinished. Use the
-          Projects feature as the house pattern, agree the contract, then build
-          the endpoints and UI against the same shape.
-        </p>
-      </section>
+      <ActionsScreen projectId="project-zawadi" />
     </main>
   );
 }

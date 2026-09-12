@@ -47,7 +47,9 @@ button {
 
 .hero h1,
 .panel h2,
-.projectCard h3 {
+.projectCard h3,
+.actionRow h3,
+.stateCard h3 {
   margin: 0;
 }
 
@@ -131,8 +133,182 @@ button {
   background: var(--ok);
 }
 
+.status-open {
+  background: var(--accent);
+}
+
+.status-blocked {
+  background: var(--danger);
+}
+
+.status-done {
+  background: var(--ok);
+}
+
 .copy {
   font-size: 1rem;
   line-height: 1.7;
   max-width: 720px;
+}
+
+.actionsPanel {
+  margin-top: 4px;
+}
+
+.actionForm {
+  background: var(--card);
+  border-radius: 8px;
+  display: grid;
+  gap: 12px;
+  margin: 20px auto 0;
+  max-width: 720px;
+  padding: 18px;
+}
+
+.actionForm label {
+  display: grid;
+  gap: 6px;
+}
+
+.actionForm label span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.actionForm input {
+  background: color-mix(in srgb, white, var(--surface) 20%);
+  border: 1px solid color-mix(in srgb, var(--ink), transparent 82%);
+  border-radius: 8px;
+  color: var(--ink);
+  min-height: 44px;
+  padding: 10px 12px;
+}
+
+.actionForm input:focus,
+.actionForm button:focus,
+.actionRow:focus,
+.stateCard button:focus,
+.stateCard a:focus {
+  outline: 3px solid color-mix(in srgb, var(--accent), transparent 50%);
+  outline-offset: 2px;
+}
+
+.actionForm button,
+.stateCard button,
+.stateCard a {
+  align-items: center;
+  background: var(--ink);
+  border: 0;
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
+.actionForm button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.formError {
+  color: var(--danger);
+  font-weight: 700;
+  margin: 0;
+}
+
+.actionsList {
+  display: grid;
+  gap: 12px;
+  margin: 18px auto 0;
+  max-width: 720px;
+}
+
+.actionRow {
+  background: var(--card);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.actionRow h3 {
+  margin-top: 12px;
+}
+
+.actionRow p {
+  color: var(--muted);
+  margin: 6px 0 0;
+}
+
+.skeletonRow {
+  background: var(--card);
+  border-radius: 8px;
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+}
+
+.skeletonRow span,
+.skeletonRow strong,
+.skeletonRow em {
+  animation: pulse 1.4s ease-in-out infinite;
+  background: color-mix(in srgb, var(--muted), transparent 74%);
+  border-radius: 999px;
+  display: block;
+  min-height: 12px;
+}
+
+.skeletonRow span {
+  width: 72px;
+}
+
+.skeletonRow strong {
+  width: min(420px, 72%);
+}
+
+.skeletonRow em {
+  width: min(260px, 54%);
+}
+
+.stateCard {
+  background: var(--card);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+.stateCard p {
+  color: var(--muted);
+  margin: 8px 0 16px;
+}
+
+.stateCardDanger {
+  border: 1px solid color-mix(in srgb, var(--danger), transparent 45%);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@media (min-width: 720px) {
+  .actionForm {
+    grid-template-columns: 1fr 180px 160px;
+  }
+
+  .actionForm button,
+  .formError {
+    grid-column: 1 / -1;
+  }
 }
