@@ -2,7 +2,9 @@
 
 Starter repository for the Moringa Claude Code live workshop.
 
-Zawadi Desk is a small Next.js operations tool designed to deploy cleanly on Vercel. It already has a complete `projects` feature and the start of an `actions` feature. During the workshop, pairs agree the `actions` contract, build one side each, review each other, and merge.
+Zawadi Desk is a small Next.js operations tool designed to deploy cleanly on Vercel. It has a complete `projects` reference feature and a completed `actions` workshop feature. During the workshop, learners can study the contract, inspect the implementation, run the tests, and make small follow-up changes.
+
+Current workshop state: the Actions feature is now implemented as the completed demo version. Learners can still use the contract, handover notes, and tests to review how the feature was built.
 
 ## Setup
 
@@ -13,13 +15,13 @@ npm run lint
 npm run build
 ```
 
-The normal test suite is green before the workshop starts. The action contract tests are intentionally separate:
+The normal test suite checks the Projects reference feature. The action contract tests check the completed Actions feature:
 
 ```bash
 npm run test:actions
 ```
 
-Those tests describe the feature you will build. Do not edit them to make the feature pass.
+Those tests describe the contract the Actions implementation satisfies. Do not edit them to make the feature pass.
 
 ## Run locally
 
@@ -37,12 +39,12 @@ Import this repository in Vercel and keep the detected framework as Next.js. No 
 
 - `app/` contains the Next.js routes and pages.
 - `app/api/projects/route.ts` is the complete reference API route.
-- `app/api/projects/[projectId]/actions/route.ts` is intentionally incomplete.
-- `lib/projects.ts` is the finished reference data layer. Copy its patterns.
-- `lib/actions.ts` is the starter data layer for the workshop feature.
-- `components/` contains the UI pieces Dev B can extend.
-- `docs/contract/actions.yaml` is the seam between Dev A and Dev B.
-- `docs/handover/` is the UI handover for Dev B.
-- `TASKS.md` has the small first-run tasks.
+- `app/api/projects/[projectId]/actions/route.ts` is the completed Actions API route.
+- `lib/projects.ts` is the finished reference data layer.
+- `lib/actions.ts` is the completed in-memory Actions data layer.
+- `components/actions-screen.tsx` is the completed Actions screen.
+- `docs/contract/actions.yaml` is the API contract that guided the implementation.
+- `docs/handover/` is the UI handover that guided the interface.
+- `TASKS.md` has small follow-up tasks learners can use for practice.
 
 No real credentials belong in this repository. `.env.example` contains dummy values only.

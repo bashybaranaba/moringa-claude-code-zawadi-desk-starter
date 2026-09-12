@@ -1,19 +1,21 @@
-# Breakout 1 Tasks
+# Follow-up Practice Tasks
 
-Pick one small task. Keep the diff under 30 lines.
+The core Actions feature is complete. Pick one small follow-up task. Keep the diff focused and reviewable.
 
-## Dev A
+## API and data
 
 1. Add a `description` field to project list responses in `lib/projects.ts`.
 2. Sort projects by `updatedAt` descending.
-3. Add a helper named `findProjectOrThrow`.
+3. Add validation so `dueDate` must be a valid date string when provided.
+4. Add a small test for owner defaulting to `Unassigned`.
 
-## Dev B
+## UI
 
 1. Add a compact mode to `ProjectCard`.
 2. Add a `variant` prop to `PageHeader`.
-3. Add a simple empty state component for the future Actions screen.
+3. Add a filter to show open, blocked, or done actions.
+4. Add a visual count for open actions.
 
 ## Stretch
 
-Ask the agent a question the repo cannot answer. Save the exact wording that produced the bad answer.
+Ask the agent to explain the Actions feature, then compare the answer against the code and tests. Save one example where the agent was precise and one where it guessed.
