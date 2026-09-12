@@ -1,8 +1,13 @@
 import type { Project } from "@/lib/projects";
 
-export function ProjectCard({ project }: { project: Project }) {
+type ProjectCardProps = {
+  project: Project;
+  compact?: boolean;
+};
+
+export function ProjectCard({ project, compact = false }: ProjectCardProps) {
   return (
-    <article className="projectCard">
+    <article className={`projectCard${compact ? " projectCard-compact" : ""}`}>
       <div>
         <h3>{project.name}</h3>
         <p>{project.owner}</p>

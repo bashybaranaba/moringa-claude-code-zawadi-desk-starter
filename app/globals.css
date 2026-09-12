@@ -106,9 +106,21 @@ button {
   padding: 18px;
 }
 
+.projectCard-compact {
+  padding: 12px 14px;
+}
+
+.projectCard-compact h3 {
+  font-size: 1rem;
+}
+
 .projectCard p {
   color: var(--muted);
   margin: 6px 0 0;
+}
+
+.projectCard-compact p {
+  margin-top: 2px;
 }
 
 .status {
