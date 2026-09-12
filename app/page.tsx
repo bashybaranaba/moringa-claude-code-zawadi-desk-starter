@@ -3,7 +3,7 @@ import { ActionsScreen } from "@/components/actions-screen";
 import { PageHeader } from "@/components/page-header";
 import { ProjectCard } from "@/components/project-card";
 
-export default function Home( {
+export default function Home() {
   const projects = listProjects();
 
   return (
