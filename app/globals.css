@@ -136,3 +136,142 @@ button {
   line-height: 1.7;
   max-width: 720px;
 }
+
+
+.actionList {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.actionRow {
+  align-items: center;
+  background: var(--card);
+  border-radius: 8px;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  padding: 18px;
+}
+
+.actionRowMain {
+  flex: 1;
+}
+
+.actionTitle {
+  margin: 0 0 6px;
+}
+
+.actionMeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.actionOwner {
+  font-weight: 600;
+}
+
+.actionDueDate {
+  opacity: 0.8;
+}
+
+/* Skeleton styles */
+.skeleton {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.skeletonTitle,
+.skeletonMeta,
+.skeletonStatus {
+  background: color-mix(in srgb, var(--ink), transparent 85%);
+  border-radius: 4px;
+  animation: skeleton-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.skeletonTitle {
+  height: 1.2rem;
+  width: 70%;
+}
+
+.skeletonMeta {
+  height: 1rem;
+  width: 50%;
+  margin-top: 6px;
+}
+
+.skeletonStatus {
+  height: 24px;
+  width: 60px;
+}
+
+@keyframes skeleton-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Status badge variations */
+.status-open {
+  background: var(--muted);
+}
+
+.status-blocked {
+  background: var(--danger);
+}
+
+.status-done {
+  background: var(--ok);
+}
+
+/* Empty and error states */
+.emptyState {
+  text-align: center;
+  margin-top: 36px;
+  max-width: 480px;
+}
+
+.emptyStateText {
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin: 0 0 16px;
+}
+
+.errorState {
+  text-align: center;
+  margin-top: 36px;
+  max-width: 480px;
+}
+
+.errorStateText {
+  color: var(--danger);
+  font-size: 1.1rem;
+  margin: 0 0 16px;
+}
+
+/* Primary button */
+.primaryButton {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.primaryButton:hover {
+  background: #a35b36;
+}
