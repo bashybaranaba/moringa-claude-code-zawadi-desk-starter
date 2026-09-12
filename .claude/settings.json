@@ -13,6 +13,9 @@
     "ask": ["Bash(npm install)", "Bash(git commit:*)", "Bash(gh pr:*)"],
     "deny": [
       "Read(.env)",
+      "Bash(infisical secrets:*)",
+      "Bash(infisical export:*)",
+      "Bash(infisical login:*)",
       "Read(.env.*)",
       "Bash(printenv*)",
       "Bash(env)",
